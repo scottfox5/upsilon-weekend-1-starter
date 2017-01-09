@@ -49,8 +49,7 @@ function addEmployee(emp) {
 
 function addSalary(emp) {
   
-  var $monthlySalary = emp.annualSalary / 12;
-  $totalMonthly += $monthlySalary;
+$totalMonthly += emp.annualSalary / 12;
 
   $('#totalMonthlyNumber').remove();
 
