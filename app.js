@@ -46,10 +46,10 @@ function addEmployee(emp) {
 }
 
 function addSalary(emp) {
-
+  var $totalMonthly = 0;
   var $annualSalary = emp.annualSalary;
   //var $annualSalary = $('form').find('input[type=number]').val();
-  var $totalMonthly = $annualSalary / 12;
+  $totalMonthly += $annualSalary / 12;
 
   $('#totalMonthlyNumber').remove();
 
