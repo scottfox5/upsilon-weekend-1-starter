@@ -1,6 +1,8 @@
+var $totalMonthly = 0;
+
 $(function () {
   console.log('document is ready');
-  var $totalMonthly = 0;
+
   //add html table and table heads
   $('#employees').append('<table></table>');
   $('table').append('<th>Name</th>');
@@ -47,8 +49,8 @@ function addEmployee(emp) {
 
 function addSalary(emp) {
   
-  var $annualSalary = emp.annualSalary;
-  $totalMonthly += $annualSalary / 12;
+  var $monthlySalary = emp.annualSalary / 12;
+  $totalMonthly += $monthlySalary;
 
   $('#totalMonthlyNumber').remove();
 
