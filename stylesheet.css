@@ -1,0 +1,23 @@
+form {
+  margin: 10px;
+}
+
+input{
+  margin: 10px;
+}
+
+h2 {
+}
+
+th, td {
+  text-align: center;
+  padding: 10px;
+}
+
+table {
+  margin: 10px;
+}
+
+div {
+  display: inline;
+}

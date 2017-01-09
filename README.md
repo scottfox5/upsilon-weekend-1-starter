@@ -1,7 +1,5 @@
-# Weekend 1 Challenge Starter Repo
+# #Weekend Challenge 1
 
-If you want, you can start your project by forking and cloning this repo.
+## Scott Fox
 
-However, feel free to start from scratch,too.
-
-**REMEMBER:** Carefully read the instructions in the assignment app.
+In this project, I built a form that asks for user data (name, employee ID, job title, and annual salary). After the user fills in the form and hits submit, the information is then added to a table. Then, the total monthly cost of salaries is compiled.

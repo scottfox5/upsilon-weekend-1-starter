@@ -1,6 +1,16 @@
 $(function () {
   console.log('document is ready');
 
+  //add html table and table heads
+  $('#employees').append('<table></table>');
+  $('table').append('<th>Name</th>');
+  $('table').append('<th>ID</th>');
+  $('table').append('<th>Title</th>');
+  $('table').append('<th>Annual Salary</th>');
+
+  //add monthly salary div
+  $('body').append('<div id="totalMonthly">Monthly Salary Expenditures: </div>');
+
   $('form').on('submit', function (event) {
     console.log('form submitted');
 
@@ -13,21 +23,40 @@ $(function () {
       formData[input.name] = input.value;
     });
 
-    appendDom(formData);
-
+    addEmployee(formData);
+    addSalary(formData);
     clearForm();
+
+    // $('.deleteRowButton').click(function(){
+    //   $('#deleteRowButton').remove();
+    //   $('#deleteCurrentRow').siblings('td').remove();
+    //   $('.employeeRow').remove();
+    // })
   });
 });
 
-function appendDom(emp) {
-  var $emp = $('<div class="employee"></div>'); // create a div jQuery object
+function addEmployee(emp) {
+  var $emp = $('<tr class="employeeRow"></tr>'); // create a div jQuery object
+  $emp.append('<td>' + emp.employeeFirstName + ' ' + emp.employeeLastName + '</td>'); // add our employee data
+  $emp.append('<td>' + emp.employeeIdNumber + '</td>');
+  $emp.append('<td>' + emp.jobTitle + '</td>');
+  $emp.append('<td id="annSal">' + emp.annualSalary + '</td>');
+  $emp.append('<td id="deleteCurrentRow"><button id="deleteRowButton">delete</button></td>')
+  $('table').append($emp); // append our div to the DOM
+}
 
-  $emp.append('<p>' + emp.employeeFirstName + ' ' + emp.employeeLastName + '</p>'); // add our employee data
-  $emp.append('<p>' + emp.employeeIdNumber + '</p>');
+function addSalary(emp) {
 
-  $('#employees').append($emp); // append our div to the DOM
+  var $annualSalary = emp.annualSalary;
+  //var $annualSalary = $('form').find('input[type=number]').val();
+  var $totalMonthly = $annualSalary / 12;
+
+  $('#totalMonthlyNumber').remove();
+
+  $('#totalMonthly').append('<div id="totalMonthlyNumber">' + Math.round($totalMonthly) + '</div>');
 }
 
 function clearForm() {
   $('form').find('input[type=text]').val('');
+  $('form').find('input[type=number]').val('');
 }
